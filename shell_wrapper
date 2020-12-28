@@ -7,4 +7,4 @@ Opens a new terminal and runs the command."
 }
 
 [ $# -eq 0 ] && usage && exit 1
-st -e bash -c "$1;exec $SHELL"
+st -e bash -c "$1;exec bash"
