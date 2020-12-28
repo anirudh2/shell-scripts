@@ -1,0 +1,34 @@
+#!/bin/bash
+# Controls the volume using amixer and updates the dwm status bar
+
+up_flag=''
+down_flag=''
+mute_flag=''
+
+usage() {
+    printf "Usage: volume_control [FLAG]
+
+            -u          Volume up by 5%%.
+            -d          Volume down by 5%%.
+            -m          Mute Audio."
+}
+
+[ $# -eq 0 ] && usage
+while getopts ':hudm' flag; do
+    case "${flag}" in
+        u ) up_flag=true ;;
+        d ) down_flag=true ;;
+        m ) mute_flag=true ;;
+        \? ) usage
+             exit 1
+             ;;
+   esac
+done
+
+if [ "$up_flag" = true ] ; then
+    amixer -q set Master 5%+ unmute; kill_bar
+elif [ "$down_flag" = true ] ; then
+    amixer -q set Master 5%- unmute; kill_bar
+elif [ "$mute_flag" = true ] ; then
+    amixer -q set Master toggle; kill_bar
+fi
