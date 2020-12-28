@@ -1,4 +1,10 @@
-#!/bin/sh
-# Opens the command in a new terminal.
+#!/bin/bash
+# Opens a new terminal and runs the command.
 
-st -e bash -c "$1;exec bash"
+usage() {
+    printf "Usage: shell_wrapper [COMMAND]
+Opens a new terminal and runs the command."
+}
+
+[ $# -eq 0 ] && usage && exit 1
+st -e bash -c "$1;exec $SHELL"

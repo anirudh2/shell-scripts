@@ -7,6 +7,7 @@ mute_flag=''
 
 usage() {
     printf "Usage: volume_control [FLAG]
+Controls the volume using amixer and updates the dwm status bar
 
             -u          Volume up by 5%%.
             -d          Volume down by 5%%.

@@ -5,7 +5,8 @@ up_flag=''
 down_flag=''
 
 usage() {
-    printf "Usage: volume_control [FLAG]
+    printf "Usage: brightness_control [FLAG]
+Control the brightness using xbacklight and update the status bar
 
             -u          Brightness up by 10.
             -d          Brightness down by 10."
