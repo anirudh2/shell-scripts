@@ -1,0 +1,29 @@
+#!/bin/bash
+# Controls the volume using amixer and updates the dwm status bar
+
+up_flag=''
+down_flag=''
+
+usage() {
+    printf "Usage: volume_control [FLAG]
+
+            -u          Brightness up by 10.
+            -d          Brightness down by 10."
+}
+
+[ $# -eq 0 ] && usage
+while getopts ':hud' flag; do
+    case "${flag}" in
+        u ) up_flag=true ;;
+        d ) down_flag=true ;;
+        \? ) usage
+             exit 1
+             ;;
+   esac
+done
+
+if [ "$up_flag" = true ] ; then
+    xbacklight -inc 10; kill_bar
+elif [ "$down_flag" = true ] ; then
+    xbacklight -dec 10; kill_bar
+fi
