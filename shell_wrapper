@@ -1,0 +1,4 @@
+#!/bin/sh
+# Opens the command in a new terminal.
+
+st -e bash -c "$1;exec bash"

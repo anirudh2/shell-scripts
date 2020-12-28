@@ -1,0 +1,4 @@
+#!/bin/bash
+# Opens the weather in a new terminal
+
+shell_wrapper "curl -s v2d.wttr.in"
