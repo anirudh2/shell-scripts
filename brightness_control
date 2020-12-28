@@ -1,5 +1,5 @@
 #!/bin/bash
-# Controls the volume using amixer and updates the dwm status bar
+# Controls the brightness using xbacklight and updates the dwm status bar
 
 up_flag=''
 down_flag=''
