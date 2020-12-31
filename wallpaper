@@ -1,0 +1,31 @@
+#!/bin/bash
+# Sets the wallpaper using pywal
+
+usage() {
+    printf "Usage: wallpaper [ARGUMENTS]
+Sets the wallpaper using pywal. Must be run as root.
+
+ARGUMENTS
+    file_loc: Path to the wallpaper\n\n"
+}
+
+if [[ $# -ne 1 ]]; then
+    usage
+    echo -e "$(tput bold)\e[1;36mError: Expects the path to the wallpaper as an argument."
+    exit 2
+fi
+
+# Set the wallpaper
+wal -i $1
+
+# Rebuild dwm
+cd ~/git_packages/dwm/
+make && sudo make clean install
+
+# Rebuild st
+cd ~/git_packages/st/
+make && sudo make clean install
+
+# Rebuild dmenu
+cd /home/anirudh/git_packages/dmenu/
+make && sudo make clean install
