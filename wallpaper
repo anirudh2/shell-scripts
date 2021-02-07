@@ -3,7 +3,7 @@
 
 usage() {
     printf "Usage: wallpaper [ARGUMENTS]
-Sets the wallpaper using pywal. Must be run as root.
+Sets the wallpaper using pywal. Don't run as root.
 
 ARGUMENTS
     file_loc: Path to the wallpaper\n\n"
